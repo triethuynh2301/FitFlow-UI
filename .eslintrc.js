@@ -22,9 +22,29 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json', // Point to your tsconfig
+    project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'import'],
+  ignores: [
+    // Build files
+    'build/**',
+    'dist/**',
+    'coverage/**',
+    
+    // Node modules
+    'node_modules/**',
+    
+    // Cache
+    '.cache/**',
+    '.eslintcache',
+    
+    // Config files
+    '*.config.js',
+    '*.config.ts',
+    
+    // Environment variables
+    '.env*'
+  ],
   settings: {
     react: {
       version: 'detect',

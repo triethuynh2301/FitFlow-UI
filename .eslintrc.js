@@ -27,23 +27,19 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'import'],
   ignores: [
     // Build files
-    'build/**',
-    'dist/**',
-    'coverage/**',
-    
+    'build/',
+    'dist/',
+    'coverage/',
     // Node modules
-    'node_modules/**',
-    
+    'node_modules/',
     // Cache
-    '.cache/**',
+    '.cache/',
     '.eslintcache',
-    
     // Config files
-    '*.config.js',
-    '*.config.ts',
-    
+    '.config.js',
+    '.config.ts',
     // Environment variables
-    '.env*'
+    '.env*',
   ],
   settings: {
     react: {
@@ -58,7 +54,6 @@ module.exports = {
   rules: {
     'react/jsx-no-target-blank': 'error',
     'react/jsx-curly-brace-presence': ['error', 'never'],
-
     // Import rules
     'import/order': [
       'error',
@@ -81,13 +76,11 @@ module.exports = {
     'import/no-unresolved': 'error',
     'import/no-cycle': 'error',
     'import/no-unused-modules': 'error',
-
     // TypeScript rules
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-
     // General rules
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'no-debugger': 'warn',

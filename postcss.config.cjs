@@ -11,4 +11,6 @@ module.exports = {
       },
     },
   },
+  autoprefixer: {},
+  'postcss-nested': {}, // nesting support
 }

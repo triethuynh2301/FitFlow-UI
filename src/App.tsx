@@ -1,30 +1,25 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
 import { MantineProvider } from '@mantine/core'
-import '@mantine/core/styles.css'
+import Dashboard from './pages/Dashboard'
+import { theme } from './lib/mantine.theme'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Workouts from './pages/Workouts'
+import ErrorPage from './pages/ErrorPage'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const router = createBrowserRouter([
+  { path: '/', element: <Dashboard />, errorElement: <ErrorPage /> },
+  { path: '/workouts', element: <Workouts /> },
+])
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <MantineProvider>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </MantineProvider>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider theme={theme}>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    </QueryClientProvider>
   )
 }
 

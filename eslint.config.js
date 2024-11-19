@@ -4,11 +4,13 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import mantine from 'eslint-config-mantine'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 export default tseslint.config(
   {
     ignores: ['**/*.{mjs,cjs,js,d.ts,d.mts}'],
   },
+  ...pluginQuery.configs['flat/recommended'],
   ...mantine,
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

@@ -4,14 +4,14 @@ import { Workout } from './workout.types'
 const baseUrl = 'https://localhost:7249'
 
 const urls = {
-  getWorkouts: `${baseUrl}/workouts`,
+  getWorkoutSummaries: `${baseUrl}/workouts`,
 }
 
 /**
  * @returns A list of workouts
  */
-export const getWorkouts = async (): Promise<Workout[]> => {
-  const response = await axios.get<Workout[]>(urls.getWorkouts)
+export const getWorkoutSummaries = async (): Promise<Workout[]> => {
+  const response = await axios.get<Workout[]>(urls.getWorkoutSummaries)
 
   return response.data
 }
@@ -23,7 +23,7 @@ export const getWorkouts = async (): Promise<Workout[]> => {
 export const createWorkout = async (
   workout: Omit<Workout, 'id' | 'status' | 'exercises'>
 ): Promise<Workout> => {
-  const response = await axios.post<Workout>(urls.getWorkouts, workout)
+  const response = await axios.post<Workout>(urls.getWorkoutSummaries, workout)
 
   return response.data
 }
